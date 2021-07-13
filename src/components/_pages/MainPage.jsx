@@ -1,22 +1,39 @@
-import MainInfo from '../MainInfo/MainInfo';
-import Button from '../_share/Button/Button';
-import {mainInfoBalance, mainInfoCosts, mainInfoIncomes} from '../../assets/mainInfoData.json';
+import MainInfo from "../MainInfo/MainInfo";
+import Button from "../_share/Button/Button";
+import {
+  mainInfoBalance,
+  mainInfoCosts,
+  mainInfoIncomes,
+} from "../../assets/mainInfoData.json";
 
-const MainPage = ({handleOpenTransaction}) => {
-    return (
-        <>
-            <h1>Журнал расходов</h1>
-            {/* {MainInfo({title: "Расходы", periodsData: mainInfoCosts})}
+const MainPage = ({ handleOpenTransaction }) => {
+  return (
+    <>
+      <h1>Журнал расходов</h1>
+      {/* {MainInfo({title: "Расходы", periodsData: mainInfoCosts})}
             {MainInfo({title: "Расходы", periodsData: mainInfoIncomes})}
             {MainInfo({title: "Расходы", periodsData: mainInfoBalance})} */}
-            <MainInfo title="Расходы" periodsData={mainInfoCosts} transType="costs"  handleOpenTransaction={handleOpenTransaction} />
-            <MainInfo title="Доходы" periodsData={mainInfoIncomes} transType="incomes"  handleOpenTransaction={handleOpenTransaction} />
-            <MainInfo title="Баланс" periodsData={mainInfoBalance}  handleOpenTransaction={handleOpenTransaction} />
-            <Button title="Все расходы" />
-            <Button title="Все доходы" />
-        </>
+      <MainInfo
+        title="Расходы"
+        periodsData={mainInfoCosts}
+        transType="costs"
+        handleOpenTransaction={handleOpenTransaction}
+      />
+      <MainInfo
+        title="Доходы"
+        periodsData={mainInfoIncomes}
+        transType="incomes"
+        handleOpenTransaction={handleOpenTransaction}
+      />
+      <MainInfo
+        title="Баланс"
+        periodsData={mainInfoBalance}
+        handleOpenTransaction={handleOpenTransaction}
+      />
+      <Button title="Все расходы" />
+      <Button title="Все доходы" />
+    </>
+  );
+};
 
-    );
-}
- 
 export default MainPage;
