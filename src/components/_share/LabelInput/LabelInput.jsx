@@ -5,6 +5,7 @@ const LabelInput = ({
   value,
   placeholder,
   cbOnChange,
+  cbOnClick,
 }) => {
   // const handleChange = e => console.log('e.target :>> ', e.target);
 
@@ -12,13 +13,17 @@ const LabelInput = ({
     <div>
       <label>
         <p>{title}</p>
-        <input
-          type={type}
-          name={name}
-          value={value}
-          placeholder={placeholder}
-          onChange={cbOnChange}
-        />
+        {cbOnChange ? (
+          <input
+            type={type}
+            name={name}
+            value={value}
+            placeholder={placeholder}
+            onChange={cbOnChange}
+          />
+        ) : (
+          <input type={type} name={name} value={value} onClick={cbOnClick} />
+        )}
       </label>
     </div>
   );

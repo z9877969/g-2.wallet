@@ -7,12 +7,14 @@ import {
 } from "../../assets/mainInfoData.json";
 
 const MainPage = ({ handleOpenTransaction }) => {
+
+  const getDataPeriod = (data, period) => {
+    // 
+  }
+
   return (
     <>
       <h1>Журнал расходов</h1>
-      {/* {MainInfo({title: "Расходы", periodsData: mainInfoCosts})}
-            {MainInfo({title: "Расходы", periodsData: mainInfoIncomes})}
-            {MainInfo({title: "Расходы", periodsData: mainInfoBalance})} */}
       <MainInfo
         title="Расходы"
         periodsData={mainInfoCosts}
