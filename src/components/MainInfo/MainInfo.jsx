@@ -1,9 +1,20 @@
-// import {Fragment} from 'react';
+import { useHistory} from "react-router-dom";
 
 import Button from "../_share/Button/Button";
 
 const MainInfo = ({ title, periodsData, handleOpenTransaction, transType }) => {
-  const cbOpenTransaction = () => handleOpenTransaction(transType);
+  const history = useHistory();
+  // const location = useLocation();
+
+  const newLocation = {
+    pathname: `/transaction/${transType}`,
+    state: {
+      str: "any string",
+      from: history.location,
+    },
+  };
+
+  const cbOpenTransaction = () => history.push(newLocation);
   return (
     <>
       <h2>{title}</h2>

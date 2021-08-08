@@ -11,17 +11,29 @@ class CategoriesTransactions extends Component {
     this.setState({ [name]: value });
   };
 
-  render() {
-    const { dataList, handleToggleCatTrans, handleInputClick } = this.props;
+  updateFormCat = (value) => {
+    const { handleAddCategory } = this.props;
+    handleAddCategory(value);
+    this.handleGoBack();
+  };
 
-    const updateFormCat = (value) => {
-      handleInputClick(value);
-      handleToggleCatTrans();
-    };
+  handleGoBack = () => {
+    const { history } = this.props;
+    history.push(history.location.state?.from || "/");
+  };
+
+  // handleGoBackToPrev = () => {
+  //   const { history } = this.props;
+  //   history.push(history.location.state?.fromPrev || "/");
+  // };
+
+  render() {
+    const { dataList } = this.props;
 
     return (
       <>
-        <Button title="GoBack" cbOnClick={handleToggleCatTrans} />
+        {/* <Button title="GoBackToPrev" cbOnClick={this.handleGoBackToPrev} /> */}
+        <Button title="GoBack" cbOnClick={this.handleGoBack} />
         <h1>Категории</h1>
         <ul>
           {dataList.map((dataItem) => (
@@ -29,7 +41,7 @@ class CategoriesTransactions extends Component {
               <button
                 type="button"
                 style={{ border: "none" }}
-                onClick={() => updateFormCat(dataItem.title)}
+                onClick={() => this.updateFormCat(dataItem.title)}
               >
                 {dataItem.title}
               </button>

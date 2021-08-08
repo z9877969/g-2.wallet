@@ -1,6 +1,8 @@
 import { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 import MainPage from "../_pages/MainPage";
 import TransactionPage from "../_pages/TransactionPage";
+import TransactionsHistoryPage from "../_pages/TransactionsHistoryPage";
 import "./App.css";
 
 class App extends Component {
@@ -41,31 +43,36 @@ class App extends Component {
     });
   };
 
-  handleOpenTransaction = (transType) => this.setState({ transType });
+  // handleOpenTransaction = (transType) => this.setState({ transType });
 
   handleCloseTransaction = () => this.setState({ transType: "" });
 
   render() {
     const { transType, incomes, costs } = this.state;
     return (
-      <>
-        {
-          !transType ? (
-            <MainPage
-              handleOpenTransaction={this.handleOpenTransaction}
-              costs={costs}
-              incomes={incomes}
-            />
-          ) : (
+      <Switch>
+        {/* <Route path="/" component={MainPage} /> */}
+
+        <Route
+          path="/transaction/:transType"
+          render={(routerProps) => (
             <TransactionPage
+              {...routerProps}
               transType={transType}
               handleAddTransaction={this.handleAddTransaction}
-              handleCloseTransaction={this.handleCloseTransaction}
             />
-          )
-          // TransactionPage({handleCloseTransaction: this.handleCloseTransaction})
-        }
-      </>
+          )}
+        />
+        <Route
+          path="/history/:transType"
+          render={() => (
+            <TransactionsHistoryPage costs={costs} incomes={incomes} />
+          )}
+        />
+        <Route path="/">
+          <MainPage costs={costs} incomes={incomes} />
+        </Route>
+      </Switch>
     );
   }
 }

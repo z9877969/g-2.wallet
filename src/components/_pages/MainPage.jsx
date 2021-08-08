@@ -1,3 +1,4 @@
+import { useLocation, Link } from "react-router-dom";
 import MainInfo from "../MainInfo/MainInfo";
 import Button from "../_share/Button/Button";
 import {
@@ -6,34 +7,21 @@ import {
   mainInfoIncomes,
 } from "../../assets/mainInfoData.json";
 
-const MainPage = ({ handleOpenTransaction }) => {
-
-  const getDataPeriod = (data, period) => {
-    // 
-  }
+const MainPage = ({}) => {
+  const location = useLocation();
 
   return (
     <>
       <h1>Журнал расходов</h1>
-      <MainInfo
-        title="Расходы"
-        periodsData={mainInfoCosts}
-        transType="costs"
-        handleOpenTransaction={handleOpenTransaction}
-      />
+      <MainInfo title="Расходы" periodsData={mainInfoCosts} transType="costs" />
       <MainInfo
         title="Доходы"
         periodsData={mainInfoIncomes}
         transType="incomes"
-        handleOpenTransaction={handleOpenTransaction}
       />
-      <MainInfo
-        title="Баланс"
-        periodsData={mainInfoBalance}
-        handleOpenTransaction={handleOpenTransaction}
-      />
-      <Button title="Все расходы" />
-      <Button title="Все доходы" />
+      <MainInfo title="Баланс" periodsData={mainInfoBalance} />
+      <Link to={"/history/costs"}>Все расходы</Link>
+      <Link to={"history/incomes"}>Все доходы</Link>
     </>
   );
 };

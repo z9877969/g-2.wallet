@@ -1,10 +1,18 @@
 import { Component } from "react";
+import { useLocation } from "react-router-dom";
 import Button from "../_share/Button/Button";
 import LabelInput from "../_share/LabelInput/LabelInput";
 import css from "./TransactionForm.module.css";
 
-const TransactionForm = ({ dataForm, handleFormSubmit, handleInputChange, handleToggleCatTrans }) => {
+const TransactionForm = ({
+  dataForm,
+  handleFormSubmit,
+  handleInputChange,
+  handleOpenCatTrans,
+}) => {
   const { date, time, category, sum, currency, comment } = dataForm;
+
+  const location = useLocation();
 
   return (
     <form onSubmit={handleFormSubmit}>
@@ -28,8 +36,7 @@ const TransactionForm = ({ dataForm, handleFormSubmit, handleInputChange, handle
         type="button"
         name="category"
         value={category}
-        // cbOnChange={handleInputChange}
-        cbOnClick={handleToggleCatTrans}
+        cbOnClick={handleOpenCatTrans}
       />
       <LabelInput
         title="Сумма"
