@@ -1,0 +1,57 @@
+{
+  "costs": [
+    {
+      "date": "2020-10-07",
+      "time": "11:21",
+      "category": "Напитки ",
+      "sum": "1000",
+      "currency": "UAH",
+      "comment": "sdfsdfdsfdfs",
+      "id": 1
+    },
+    {
+      "date": "2020-10-07",
+      "time": "12:52",
+      "category": "Разное",
+      "sum": "1500",
+      "currency": "UAH",
+      "comment": "sdfsdfdsfdfs",
+      "id": 2
+    }
+  ],
+  "incomes": [
+    {
+      "date": "2020-10-23",
+      "time": "11:22",
+      "category": "Бонус",
+      "sum": "1500",
+      "currency": "UAH",
+      "comment": "qwe",
+      "id": 1
+    }
+  ],
+  "costsCat": [
+    {
+      "title": "Еда ",
+      "id": 1
+    },
+    {
+      "title": "Напитки ",
+      "id": 2
+    },
+    {
+      "title": "Разное",
+      "id": 3
+    }
+  ],
+  "incomesCat": [
+    {
+      "title": "Зарплата",
+      "id": 1
+    },
+    {
+      "title": "Бонус",
+      "id": 2
+    }
+  ]
+}
