@@ -14,7 +14,7 @@ import {
   getCostsError,
 } from "./transactionsActions";
 
-axios.defaults.baseURL = "http://localhost:4040";
+// axios.defaults.baseURL = "http://localhost:4040";
 
 export const getTransactions = (transType) => (dispatch) => {
   transType === "incomes"

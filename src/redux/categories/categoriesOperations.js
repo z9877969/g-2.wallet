@@ -16,7 +16,7 @@ import {
   setIsDefaultCosts,
 } from "./categoriesActions";
 
-axios.defaults.baseURL = "http://localhost:4040";
+// axios.defaults.baseURL = "http://localhost:4040";
 
 export const getCategories = (transType) => (dispatch) => {
   transType === "incomes"

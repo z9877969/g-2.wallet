@@ -9,6 +9,7 @@ import {
 const costsReducer = createReducer([], {
   [getCostsSuccess]: (_, action) => action.payload,
   [addCostsSuccess]: (state, action) => [...state, action.payload],
+  // [logOut]: () => []
 });
 
 const incomesReducer = createReducer([], {
